@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Плейлист - Выдумкин Илья</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 20px;
+        }
+        select, button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Плейлист Топ 5 песен</h1>
+    <h2>Выдумкин Илья</h2>
+    <select id="playlist">
+        <option value="Борис Гребенщиков & Аквариум - Город Золотой.mp3">Борис Гребенщиков & Аквариум - Город Золотой.mp3</option>
+        <option value="В.Высоцкий - Песня о друге.mp3">В.Высоцкий - Песня о друге.mp3</option>
+        <option value="Вовченко Виктор Колыбельная.mp3">Вовченко Виктор Колыбельная Андрей Макаревич - Я смысл этой жизни вижу в том.mp3</option>
+        <option value="Зоя Ященко - Питер.mp3">Зоя Ященко - Питер.mp3</option>
+        <option value="Земфира - ПММЛ.mp3">Земфира - ПММЛ.mp3</option>
+    </select>
+    <button id="playBTN">Проиграть</button>
+    <audio id="audioPlayer" controls>
+        <source id="audioSource" src="" type="audio/mpeg">
+    </audio>
+
+    <script>
+        const startplay = document.getElementById('playBTN');
+        const audioPlayer = document.getElementById('audioPlayer');
+        const audioSource = document.getElementById('audioSource');
+        const playlist = document.getElementById('playlist');
+
+        startplay.addEventListener('click', () => {
+            const selectedTrack = playlist.value;
+            audioSource.src = selectedTrack;
+            audioPlayer.load();
+            audioPlayer.play();
+        });
+    </script>
+</body>
+</html>
